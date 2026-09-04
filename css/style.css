@@ -25,26 +25,44 @@
   }
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
 }
 
 #app {
-  min-height: 100vh;
-  padding-bottom: 88px;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: calc(88px + env(safe-area-inset-bottom));
 }
 
 .screen {
   max-width: 560px;
   margin: 0 auto;
   padding: 20px 16px 24px;
+}
+
+a, button, .navbtn, .tab, .fab, .book-card {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 h1 { font-size: 1.5rem; margin: 4px 0 16px; }
@@ -193,7 +211,7 @@ a { color: var(--accent); text-decoration: none; }
 
 .fab {
   position: fixed;
-  bottom: 96px;
+  bottom: calc(96px + env(safe-area-inset-bottom));
   right: 20px;
   width: 56px;
   height: 56px;

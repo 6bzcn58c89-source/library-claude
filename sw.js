@@ -1,4 +1,4 @@
-const CACHE = 'minha-biblioteca-v2';
+const CACHE = 'minha-biblioteca-v3';
 const SHELL = [
   './',
   './index.html',
